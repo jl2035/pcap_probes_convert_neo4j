@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import csv
 import sys
+import uuid
 
 if len(sys.argv) != 2:
     print("Usage: ./fix_ids_probe_responses.py filename")
