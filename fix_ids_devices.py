@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import csv
 import sys
+import uuid
 
 if len(sys.argv) != 2:
     print("Usage: ./fix_ids_devices.py filename")
@@ -11,7 +12,7 @@ number = 0
 
 with open(sys.argv[1], newline="", encoding="utf-8") as input_file:
     for row in csv.reader(input_file, delimiter="\t", quotechar='"'):
-        row.insert(0, "id" if number == 0 else number)
+        row.insert(0, "id" if number == 0 else str(uuid.uuid4()))
         rows.append(row)
         number += 1
 

@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import csv
 import sys
+import uuid
 
 if len(sys.argv) != 2:
     print("Usage: ./fix_ids_probe_requests.py filename")
@@ -56,12 +57,10 @@ with open(sys.argv[1], newline="", encoding="utf-8") as input_file:
 headings.append("client_id")
 headings.append("station_id")
 headings.insert(0, 'id')
-cnt = 0
 
 with open(sys.argv[1], 'w') as output_file:
     csv_writer = csv.writer(output_file, delimiter="\t", quotechar='"')
     csv_writer.writerow(headings)
     for row in rows:
-        cnt += 1
-        row.insert(0, cnt)
+        row.insert(0, str(uuid.uuid4()))
         csv_writer.writerow(row)
