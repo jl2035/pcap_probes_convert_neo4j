@@ -57,7 +57,7 @@ with open(sys.argv[1], newline="", encoding="utf-8") as input_file:
             except:
                 print(f"Cannot convert this: {row[7]}")
                 pass
-        
+
         row.append(clean_ssid(real_ssid))
         desc = row[8].replace("\\", "").replace('"', '')
         row[8] = desc

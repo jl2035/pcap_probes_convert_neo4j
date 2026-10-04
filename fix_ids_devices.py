@@ -10,7 +10,6 @@ rows = []
 number = 0
 
 with open(sys.argv[1], newline="", encoding="utf-8") as input_file:
-    #print(f"Processing {sys.argv[1]}")
     for row in csv.reader(input_file, delimiter="\t", quotechar='"'):
         row.insert(0, "id" if number == 0 else number)
         rows.append(row)
